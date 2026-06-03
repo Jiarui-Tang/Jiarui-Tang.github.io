@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | About</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="about">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Portfolio home">
+        <span class="brand-mark"></span>
+        <span>Portfolio</span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </header>
+    <div class="menu-panel" aria-hidden="true">
+      <div class="menu-glass">
+        <div class="menu-top"><p class="eyebrow" data-i18n="menuLabel">Menu</p><button class="menu-close" type="button" aria-label="Close menu">×</button></div>
+        <nav class="menu-links" aria-label="Site navigation">
+          <a href="index.html" data-i18n="navHome">主页</a>
+          <a href="about.html" data-i18n="navAbout">关于我</a>
+          <a href="courses.html" data-i18n="navCourses">课程课业</a>
+          <a href="projects.html" data-i18n="navProjects">项目展示</a>
+          <a href="news.html" data-i18n="navNews">最新消息</a>
+          <a href="contact.html" data-i18n="navContact">保持联系</a>
+        </nav>
+        <div class="language-switch" aria-label="Language"><button type="button" data-lang="zh">中文</button><button type="button" data-lang="en">EN</button></div>
+      </div>
+    </div>
+    <main class="page-shell inner-page">
+      <section class="split-page">
+        <div class="page-copy">
+          <p class="eyebrow" data-i18n="aboutKicker">About Me</p>
+          <h1 data-i18n="aboutTitle">关于我</h1>
+          <p data-i18n="aboutIntro">在这里，你可以看到我的教育经历和个人兴趣。</p>
+        </div>
+        <div class="education-panel liquid-card">
+          <article>
+            <span>我的学校</span>
+            <h2 data-i18n="aboutSchool">University of California, Irvine</h2>
+            <p data-i18n="aboutSchoolText">加利福尼亚大学-尔湾，简称UCI，成立于1965年，坐落在美国的加利福尼亚州西南部，隶属于加州大学系统下的九所高等教育机构之一。</p>
+          </article>
+          <article>
+            <span>我的专业</span>
+            <h2 data-i18n="aboutFocus">Computer Engineering B.S.</h2>
+            <p data-i18n="aboutFocusText">计算机工程理学士学位，主要学习计算机原理及开发，覆盖数学、物理、编程、电路分析等课程，具体可参见课程课业页。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

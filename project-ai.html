@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | AI Companion</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="projects">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Portfolio home"><span class="brand-mark"></span><span>Portfolio</span></a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </header>
+    <div class="menu-panel" aria-hidden="true">
+      <div class="menu-glass">
+        <div class="menu-top"><p class="eyebrow" data-i18n="menuLabel">Menu</p><button class="menu-close" type="button" aria-label="Close menu">×</button></div>
+        <nav class="menu-links" aria-label="Site navigation">
+          <a href="index.html" data-i18n="navHome">主页</a>
+          <a href="about.html" data-i18n="navAbout">关于与教育</a>
+          <a href="courses.html" data-i18n="navCourses">课程课业</a>
+          <a href="projects.html" data-i18n="navProjects">项目 Gallery</a>
+          <a href="news.html" data-i18n="navNews">新闻更新</a>
+          <a href="contact.html" data-i18n="navContact">联系</a>
+        </nav>
+        <div class="language-switch" aria-label="Language"><button type="button" data-lang="zh">中文</button><button type="button" data-lang="en">EN</button></div>
+      </div>
+    </div>
+
+    <main class="page-shell project-detail-page">
+      <a class="text-link project-back" href="projects.html" data-i18n="projectBack">返回项目</a>
+      <section class="project-detail-hero">
+        <div class="page-copy">
+          <p class="eyebrow">Project 01</p>
+          <h1>AI Companion</h1>
+          <p data-i18n="projectAiHero">一个用于展示 AI 对话、个性化反馈和交互原型的项目详情页。这里暂时放占位内容，之后可以替换成真实 demo、截图和技术说明。</p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=90" alt="AI Companion visual" />
+      </section>
+
+      <nav class="project-subnav" aria-label="Project sections">
+        <a href="#overview" data-i18n="subOverview">概览</a>
+        <a href="#process" data-i18n="subProcess">过程</a>
+        <a href="#tech" data-i18n="subTech">技术</a>
+        <a href="#links" data-i18n="subLinks">链接</a>
+      </nav>
+
+      <section id="overview" class="detail-block liquid-card">
+        <p class="eyebrow" data-i18n="subOverview">概览</p>
+        <h2 data-i18n="projectAiOverviewTitle">一个更自然的学习助手</h2>
+        <p data-i18n="projectAiOverviewText">项目目标是让 AI 像一个可持续陪伴的学习伙伴：它能整理想法、追踪任务、生成复习计划，并根据用户反馈调整语气和输出形式。</p>
+      </section>
+
+      <section id="process" class="detail-block liquid-card">
+        <p class="eyebrow" data-i18n="subProcess">过程</p>
+        <h2 data-i18n="projectProcessTitle">从问题到原型</h2>
+        <p data-i18n="projectProcessText">这里可以放调研、线框图、用户流程、交互测试记录和迭代截图。现在先用文字占位，保持结构完整。</p>
+      </section>
+
+      <section id="tech" class="detail-block liquid-card">
+        <p class="eyebrow" data-i18n="subTech">技术</p>
+        <h2>Stack</h2>
+        <p>HTML / CSS / JavaScript / Prompt Design / UI Prototyping</p>
+      </section>
+
+      <section id="links" class="detail-block liquid-card">
+        <p class="eyebrow" data-i18n="subLinks">链接</p>
+        <h2 data-i18n="projectLinksTitle">Demo 与资料</h2>
+        <p data-i18n="projectLinksText">这里可以放 GitHub、Demo、论文、演示视频或下载文件。</p>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

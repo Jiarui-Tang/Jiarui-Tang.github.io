@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Home</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Portfolio home">
+        <span class="brand-mark"></span>
+        <span>TJR</span>
+      </a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="menu-panel" aria-hidden="true">
+      <div class="menu-glass">
+        <div class="menu-top">
+          <p class="eyebrow" data-i18n="menuLabel">Menu</p>
+          <button class="menu-close" type="button" aria-label="Close menu">×</button>
+        </div>
+        <nav class="menu-links" aria-label="Site navigation">
+          <a href="index.html" data-i18n="navHome">主页</a>
+          <a href="about.html" data-i18n="navAbout">关于我</a>
+          <a href="courses.html" data-i18n="navCourses">课程课业</a>
+          <a href="projects.html" data-i18n="navProjects">项目展示</a>
+          <a href="news.html" data-i18n="navNews">最新消息</a>
+          <a href="contact.html" data-i18n="navContact">保持联系</a>
+        </nav>
+        <div class="language-switch" aria-label="Language">
+          <button type="button" data-lang="zh">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+
+    <main class="page-shell home-shell">
+      <section class="hero-page home-section">
+        <div class="hero-media" aria-hidden="true">
+          <div class="orbital orbital-one"></div>
+          <div class="orbital orbital-two"></div>
+          <div class="hero-image"></div>
+        </div>
+        <div class="page-copy">
+          <p class="eyebrow" data-i18n="homeKicker">Personal Site / Blue Glass Interface</p>
+          <h1><span data-i18n="homeTitleA">你好，我是</span> <strong data-i18n="homeTitleB">汤嘉瑞</strong></h1>
+          <p data-i18n="homeIntro">
+            这是一个为学习、项目、课程与更新而设计的个人网站。整体偏蓝色调，带有液态玻璃质感、分页跳转体验和更沉浸的主页动效。
+          </p>
+          
+        </div>
+        <aside class="update-preview liquid-card">
+          <p class="eyebrow" data-i18n="homeUpdateKicker">Latest Update</p>
+          <h2 data-i18n="homeUpdateTitle">初步开发</h2>
+          <p data-i18n="homeUpdateText">这个界面还在开发中。</p>
+          <a href="news.html" data-i18n="homeUpdateLink">阅读更新</a>
+        </aside>
+      </section>
+
+      <section class="home-about home-section">
+        <div class="page-copy">
+          <p class="eyebrow" data-i18n="aboutKicker">About Me</p>
+          <h2 class="home-section-title" data-i18n="aboutTitle">关于我和教育经历</h2>
+          <p data-i18n="aboutIntro">在这里写你的自我介绍：兴趣方向、正在探索的领域、个人风格，以及你希望别人通过这个网站认识到的核心信息。</p>
+          <a class="text-link" href="about.html" data-i18n="homeAboutLink">进入完整关于页</a>
+        </div>
+        <div class="education-panel liquid-card">
+          <article>
+            <span>2024 - Present</span>
+            <h3 data-i18n="aboutSchool">学校 / 专业名称</h3>
+            <p data-i18n="aboutSchoolText">可以放课程方向、研究兴趣、GPA、社团、奖项或代表性经历。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="home-routes home-section">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="homeRoutesKicker">Explore</p>
+          <h2 class="home-section-title" data-i18n="homeRoutesTitle">继续浏览</h2>
+          <p data-i18n="homeRoutesIntro">这些入口和 menu 里的页面一样，点击后会跳转到对应的独立页面。</p>
+        </div>
+        <div class="route-grid">
+          <a class="route-card" href="courses.html">
+            <span>01</span>
+            <h3 data-i18n="navCourses">课程课业</h3>
+            <p data-i18n="routeCourses">课程、作业、研究笔记和课堂项目。</p>
+          </a>
+          <a class="route-card" href="projects.html">
+            <span>02</span>
+            <h3 data-i18n="navProjects">项目 Gallery</h3>
+            <p data-i18n="routeProjects">照片堆叠、项目详情和左右浏览。</p>
+          </a>
+          <a class="route-card" href="news.html">
+            <span>03</span>
+            <h3 data-i18n="navNews">新闻更新</h3>
+            <p data-i18n="routeNews">近期动态、作品迭代和重要消息。</p>
+          </a>
+          <a class="route-card" href="contact.html">
+            <span>04</span>
+            <h3 data-i18n="navContact">联系</h3>
+            <p data-i18n="routeContact">邮箱、社交链接和合作入口。</p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Contact</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="contact">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Portfolio home"><span class="brand-mark"></span><span>Portfolio</span></a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </header>
+    <div class="menu-panel" aria-hidden="true">
+      <div class="menu-glass">
+        <div class="menu-top"><p class="eyebrow" data-i18n="menuLabel">Menu</p><button class="menu-close" type="button" aria-label="Close menu">×</button></div>
+        <nav class="menu-links" aria-label="Site navigation">
+          <a href="index.html" data-i18n="navHome">主页</a>
+          <a href="about.html" data-i18n="navAbout">关于与教育</a>
+          <a href="courses.html" data-i18n="navCourses">课程课业</a>
+          <a href="projects.html" data-i18n="navProjects">项目 Gallery</a>
+          <a href="news.html" data-i18n="navNews">新闻更新</a>
+          <a href="contact.html" data-i18n="navContact">联系</a>
+        </nav>
+        <div class="language-switch" aria-label="Language"><button type="button" data-lang="zh">中文</button><button type="button" data-lang="en">EN</button></div>
+      </div>
+    </div>
+    <main class="page-shell inner-page contact-page">
+      <section class="contact-card liquid-card">
+        <p class="eyebrow" data-i18n="contactKicker">Contact</p>
+        <h1 data-i18n="contactTitle">保持联系</h1>
+        <p data-i18n="contactIntro">可以把邮箱、LinkedIn、GitHub、小红书、Instagram 或学校邮箱放在这里。</p>
+        <div class="contact-actions">
+          <a class="glass-tile" href="mailto:your.email@example.com"><strong>Email</strong><small>your.email@example.com</small></a>
+          <a class="glass-tile" href="#"><strong>GitHub</strong><small>@yourname</small></a>
+          <a class="glass-tile" href="#"><strong>LinkedIn</strong><small>Connect</small></a>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
