@@ -381,7 +381,6 @@ h1 {
 h1 strong {
   display: block;
   margin-top: 0.08em;
-  padding-bottom: 0.1em;
   color: transparent;
   background: linear-gradient(90deg, #ffffff 0%, var(--cyan) 34%, #579dff 70%, #ffffff 100%);
   background-clip: text;
@@ -396,6 +395,31 @@ h1 strong {
 
 .hero-page h1 span {
   display: block;
+}
+
+html[lang="en"] .hero-page h1 {
+  max-width: 780px;
+  font-size: clamp(3.5rem, 7.4vw, 6.7rem);
+  line-height: 1.04;
+}
+
+html[lang="en"] .hero-page h1 strong {
+  padding-bottom: 0.12em;
+  white-space: nowrap;
+}
+
+html[lang="zh-CN"] .hero-page h1 {
+  font-size: clamp(4.2rem, 9.2vw, 7.7rem);
+  line-height: 1;
+}
+
+html[lang="zh-CN"] .hero-page h1 span {
+  font-size: 0.58em;
+  line-height: 1.18;
+}
+
+html[lang="zh-CN"] .hero-page h1 strong {
+  padding-bottom: 0;
 }
 
 h2 {
@@ -1002,6 +1026,19 @@ h2 {
   .hero-page h1 {
     font-size: clamp(3.25rem, 14vw, 5.7rem);
     line-height: 1.1;
+  }
+
+  html[lang="en"] .hero-page h1 {
+    font-size: clamp(3rem, 13vw, 5rem);
+    line-height: 1.08;
+  }
+
+  html[lang="en"] .hero-page h1 strong {
+    white-space: normal;
+  }
+
+  html[lang="zh-CN"] .hero-page h1 {
+    font-size: clamp(3.4rem, 15vw, 5.6rem);
   }
 
   .course-grid {
