@@ -144,10 +144,9 @@ button {
   inset: 0;
   z-index: 120;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(12px, 3vw, 24px);
-  overflow-y: auto;
+  align-items: stretch;
+  justify-content: flex-end;
+  overflow: hidden;
   overscroll-behavior: contain;
   pointer-events: none;
   opacity: 0;
@@ -162,8 +161,8 @@ body.menu-is-open {
   position: absolute;
   inset: 0;
   content: "";
-  background: rgba(0, 7, 18, 0.68);
-  backdrop-filter: blur(18px);
+  background: rgba(0, 7, 18, 0.44);
+  backdrop-filter: blur(10px);
 }
 
 .menu-panel.menu-open {
@@ -174,25 +173,24 @@ body.menu-is-open {
 .menu-glass {
   position: relative;
   display: grid;
-  width: min(720px, 100%);
-  max-height: calc(100svh - clamp(24px, 6vw, 48px));
-  margin: auto;
-  gap: 26px;
-  padding: clamp(24px, 5vw, 44px);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  width: min(390px, calc(100vw - 32px));
+  min-height: 100svh;
+  align-content: start;
+  gap: 22px;
+  padding: 28px;
+  border-left: 1px solid var(--line);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.04)),
-    rgba(8, 30, 58, 0.78);
+    rgba(8, 30, 58, 0.88);
   box-shadow: var(--shadow);
   overflow-y: auto;
-  transform: translateY(18px) scale(0.98);
+  transform: translateX(100%);
   transition: transform 260ms ease;
   backdrop-filter: blur(28px) saturate(160%);
 }
 
 .menu-open .menu-glass {
-  transform: translateY(0) scale(1);
+  transform: translateX(0);
 }
 
 .menu-top {
@@ -210,18 +208,18 @@ body.menu-is-open {
 
 .menu-links {
   display: grid;
-  gap: clamp(2px, 1.2vh, 8px);
+  gap: 6px;
 }
 
 .menu-links a {
   display: flex;
   justify-content: space-between;
-  padding: clamp(10px, 2vh, 18px) 0;
+  padding: 13px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--muted);
-  font-size: clamp(1.45rem, 4.8vw, 4.5rem);
+  font-size: clamp(1.08rem, 2vw, 1.32rem);
   font-weight: 760;
-  line-height: 1;
+  line-height: 1.2;
   transition: color 180ms ease, transform 180ms ease;
 }
 
@@ -383,6 +381,7 @@ h1 {
 h1 strong {
   display: block;
   margin-top: 0.08em;
+  padding-bottom: 0.1em;
   color: transparent;
   background: linear-gradient(90deg, #ffffff 0%, var(--cyan) 34%, #579dff 70%, #ffffff 100%);
   background-clip: text;
@@ -946,20 +945,30 @@ h2 {
 
   .menu-panel {
     align-items: flex-start;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    justify-content: center;
+    padding: 0 10px;
+    overflow-y: auto;
   }
 
   .menu-glass {
-    width: 100%;
-    max-height: calc(100svh - 24px);
-    gap: 18px;
-    padding: 20px;
+    width: min(100%, 680px);
+    min-height: auto;
+    max-height: calc(100svh - 86px);
+    margin-top: 76px;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    transform: translateY(-18px);
+  }
+
+  .menu-panel.menu-open .menu-glass {
+    transform: translateY(0);
   }
 
   .menu-links a {
-    padding: 11px 0;
-    font-size: clamp(1.55rem, 9vw, 3rem);
+    padding: 10px 0;
+    font-size: 1rem;
   }
 
   .page-shell {
@@ -1084,18 +1093,14 @@ h2 {
 }
 
 @media (max-height: 680px) {
-  .menu-panel {
-    align-items: flex-start;
-  }
-
   .menu-glass {
-    gap: 14px;
-    padding: 18px;
+    gap: 10px;
+    padding: 18px 22px;
   }
 
   .menu-links a {
-    padding: 8px 0;
-    font-size: clamp(1.35rem, 7vh, 2.65rem);
+    padding: 9px 0;
+    font-size: 1rem;
   }
 
   .language-switch button {
