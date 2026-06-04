@@ -210,6 +210,28 @@ function normalizeSharedMenu() {
     );
   }
 
+  const menuButton = document.querySelector(".menu-button");
+
+  if (!document.querySelector(".header-actions") && header && menuButton) {
+    menuButton.insertAdjacentHTML(
+      "beforebegin",
+      `<div class="header-actions">
+        <nav class="header-nav" aria-label="Site navigation">
+          <a href="index.html" data-i18n="navHome">主页</a>
+          <a href="about.html" data-i18n="navAbout">关于我</a>
+          <a href="courses.html" data-i18n="navCourses">课程课业</a>
+          <a href="projects.html" data-i18n="navProjects">项目展示</a>
+          <a href="news.html" data-i18n="navNews">最新消息</a>
+          <a href="contact.html" data-i18n="navContact">保持联系</a>
+        </nav>
+        <div class="header-language" aria-label="Language">
+          <button type="button" data-lang="zh">中文</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>`
+    );
+  }
+
   if (!panel && header) {
     header.insertAdjacentHTML("afterend", '<div class="menu-panel" aria-hidden="true"></div>');
     panel = document.querySelector(".menu-panel");
@@ -298,7 +320,7 @@ function applyLanguage(lang) {
 }
 
 function markCurrentPage() {
-  document.querySelectorAll(".menu-links a").forEach((link) => {
+  document.querySelectorAll(".header-nav a, .menu-links a").forEach((link) => {
     const target = link.getAttribute("href")?.replace(".html", "") || "index";
     const normalizedPage = page === "home" ? "index" : page;
     link.classList.toggle("active-page", target === normalizedPage);
@@ -307,6 +329,10 @@ function markCurrentPage() {
 
 menuButton?.addEventListener("click", () => setMenu(true));
 menuClose?.addEventListener("click", () => setMenu(false));
+document.querySelector(".header-actions")?.addEventListener("click", (event) => {
+  const languageButton = event.target.closest("[data-lang]");
+  if (languageButton) applyLanguage(languageButton.dataset.lang);
+});
 menuPanel?.addEventListener("click", (event) => {
   const languageButton = event.target.closest("[data-lang]");
   if (languageButton) {
