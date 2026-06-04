@@ -241,6 +241,8 @@ function normalizeSharedMenu() {
 
 normalizeSharedMenu();
 
+const LANGUAGE_STORAGE_KEY = "portfolioLangV3";
+const DEFAULT_LANGUAGE = "en";
 const menuButton = document.querySelector(".menu-button");
 const menuPanel = document.querySelector(".menu-panel");
 const menuClose = document.querySelector(".menu-close");
@@ -250,15 +252,16 @@ const page = document.body.dataset.page;
 
 function readStoredLang() {
   try {
-    return localStorage.getItem("portfolioLangV2") || "en";
+    const storedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+    return translations[storedLang] ? storedLang : DEFAULT_LANGUAGE;
   } catch {
-    return "en";
+    return DEFAULT_LANGUAGE;
   }
 }
 
 function writeStoredLang(lang) {
   try {
-    localStorage.setItem("portfolioLangV2", lang);
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
   } catch {
     // Some file:// browser contexts block storage; language still works for this page load.
   }
@@ -275,14 +278,14 @@ function setMenu(open) {
 }
 
 function applyLanguage(lang) {
-  currentLang = translations[lang] ? lang : "zh";
+  currentLang = translations[lang] ? lang : DEFAULT_LANGUAGE;
   writeStoredLang(currentLang);
   document.documentElement.lang = currentLang === "zh" ? "zh-CN" : "en";
 
   translatable.forEach((element) => {
     const key = element.dataset.i18n;
     const value = translations[currentLang][key];
-    if (value) element.textContent = value;
+    if (value !== undefined) element.textContent = value;
   });
 
   languageButtons.forEach((button) => {
@@ -305,11 +308,13 @@ function markCurrentPage() {
 menuButton?.addEventListener("click", () => setMenu(true));
 menuClose?.addEventListener("click", () => setMenu(false));
 menuPanel?.addEventListener("click", (event) => {
-  if (event.target === menuPanel) setMenu(false);
-});
+  const languageButton = event.target.closest("[data-lang]");
+  if (languageButton) {
+    applyLanguage(languageButton.dataset.lang);
+    return;
+  }
 
-languageButtons.forEach((button) => {
-  button.addEventListener("click", () => applyLanguage(button.dataset.lang));
+  if (event.target === menuPanel) setMenu(false);
 });
 
 document.addEventListener("keydown", (event) => {
