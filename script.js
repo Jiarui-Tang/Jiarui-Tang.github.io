@@ -3,7 +3,7 @@ const translations = {
     menuLabel: "Menu",
     navHome: "主页",
     navAbout: "关于我",
-    navCourses: "课程课业",
+    navCourses: "在校经历",
     navProjects: "项目展示",
     navNews: "最新消息",
     navContact: "保持联系",
@@ -17,11 +17,18 @@ const translations = {
     homeUpdateTitle: "初步开发",
     homeUpdateText: "",
     homeUpdateLink: "更新记录",
+    homeAboutKicker: "About Preview",
+    homeAboutTitle: "简要教育经历",
+    homeAboutIntro: "这里放一段主页用的简短介绍，重点让访客快速知道你的学习背景和兴趣方向。更完整的个人经历可以进入 About 页面查看。",
+    homeAboutSchool: "Education Snapshot",
+    homeAboutSchoolText: "入学年份：2025 \n 预计毕业：2029 \n 就读专业：计算机工程",
+    homeAboutFocus: "Current Focus",
+    homeAboutFocusText: "主页这里只保留最核心的关键词，例如 AI、设计、工程或研究兴趣。",
     homeAboutLink: "进入完整关于页",
     homeRoutesKicker: "Explore",
     homeRoutesTitle: "继续浏览",
     homeRoutesIntro: "查看更多细节",
-    routeCourses: "课程、作业、研究笔记和课堂项目。",
+    routeCourses: "课程课业、团队项目与社团参与。",
     routeProjects: "项目总览、独立详情页和作品内容。",
     routeNews: "近期动态、作品迭代和重要消息。",
     routeContact: "邮箱、社交链接和合作入口。",
@@ -29,9 +36,9 @@ const translations = {
     aboutTitle: "关于我",
     aboutIntro: "这里有我简要的高等教育经历信息。",
     aboutSchool: "加利福尼亚大学（尔湾分校）",
-    aboutSchoolText: "入学年份：2025 \n 预计毕业：2029 \n 就读专业：计算机工程",
+    aboutSchoolText: "加利福尼亚大学-尔湾，简称UCI，成立于1965年，坐落在美国的加利福尼亚州西南部，隶属于加州大学系统下的九所高等教育机构之一。",
     coursesKicker: "Coursework",
-    coursesTitle: "课程与课业展示",
+    coursesTitle: "在校经历",
     courseOne: "作业、实验、笔记、代码片段或最终项目。",
     courseTwo: "证明、建模、数据分析与课程总结。",
     courseThree: "视觉作业、作品集草稿、交互原型。",
@@ -86,6 +93,13 @@ const translations = {
     homeUpdateTitle: "New personal site is live",
     homeUpdateText: "Home, projects, coursework, news, and contact now live as separate pages with bilingual switching in the menu.",
     homeUpdateLink: "Read update",
+    homeAboutKicker: "About Preview",
+    homeAboutTitle: "Education at a Glance",
+    homeAboutIntro: "A short homepage-only introduction that gives visitors a quick sense of your academic background and interests. The full story lives on the About page.",
+    homeAboutSchool: "Education Snapshot",
+    homeAboutSchoolText: "A compact higher-education summary for school, major, and current focus.",
+    homeAboutFocus: "Current Focus",
+    homeAboutFocusText: "Keep only the strongest keywords here, such as AI, design, engineering, or research interests.",
     homeAboutLink: "Open full about page",
     homeRoutesKicker: "Explore",
     homeRoutesTitle: "Keep Browsing",
@@ -231,20 +245,20 @@ const menuButton = document.querySelector(".menu-button");
 const menuPanel = document.querySelector(".menu-panel");
 const menuClose = document.querySelector(".menu-close");
 const languageButtons = document.querySelectorAll("[data-lang]");
-const translatable = menuPanel ? menuPanel.querySelectorAll("[data-i18n]") : [];
+const translatable = document.querySelectorAll("[data-i18n]");
 const page = document.body.dataset.page;
 
 function readStoredLang() {
   try {
-    return localStorage.getItem("portfolioLang") || "zh";
+    return localStorage.getItem("portfolioLangV2") || "en";
   } catch {
-    return "zh";
+    return "en";
   }
 }
 
 function writeStoredLang(lang) {
   try {
-    localStorage.setItem("portfolioLang", lang);
+    localStorage.setItem("portfolioLangV2", lang);
   } catch {
     // Some file:// browser contexts block storage; language still works for this page load.
   }
