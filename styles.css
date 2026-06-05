@@ -619,31 +619,8 @@ h2 {
 
 .education-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(160px, 0.36fr);
-  gap: 28px;
-  align-items: center;
-  padding: 42px 48px;
-}
-
-.education-copy {
-  display: grid;
-  gap: 28px;
-  align-content: center;
-}
-
-.education-copy h2 {
-  margin-bottom: 0;
-}
-
-.education-copy p {
-  margin-bottom: 0;
-}
-
-.education-logo {
-  width: min(220px, 100%);
-  justify-self: end;
-  border-radius: 8px;
-  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+  gap: 18px;
+  padding: 24px;
 }
 
 .education-panel article {
@@ -1089,17 +1066,6 @@ h2 {
   .split-page,
   .home-about {
     grid-template-columns: 1fr;
-  }
-
-  .education-panel {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 28px;
-  }
-
-  .education-logo {
-    width: min(190px, 70%);
-    justify-self: start;
   }
 
   .hero-page,
