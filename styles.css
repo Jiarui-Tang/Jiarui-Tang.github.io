@@ -820,7 +820,7 @@ h2 {
 }
 
 .section-heading {
-  margin-bottom: 32px;
+  margin-bottom: 0px;
 }
 
 .course-grid {
@@ -837,7 +837,7 @@ h2 {
 
 .project-page {
   display: grid;
-  gap: 34px;
+  gap: 0px;
 }
 
 .projects-page-title {
