@@ -107,7 +107,7 @@ const translations = {
     routeNews: "Check out my recent updates: progress, iterations, and important news.",
     routeContact: "Get in touch: email, social links, and collaboration opportunities.",
     aboutKicker: "About & Education",
-    aboutTitle: "About Me and Education",
+    aboutTitle: "About Me",
     aboutIntro: "Use this page for your bio, interests, current areas of exploration, personal style, and the core impression you want visitors to leave with.",
     aboutSchool: "School / Major",
     aboutSchoolText: "Add coursework focus, research interests, GPA, clubs, awards, or representative experiences.",
@@ -344,6 +344,65 @@ menuPanel?.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") setMenu(false);
 });
+
+const homeAboutSection = document.querySelector(".home-about");
+
+if (page === "home" && homeAboutSection && "IntersectionObserver" in window) {
+  const homePhotoObserver = new IntersectionObserver(
+    ([entry]) => {
+      document.body.classList.toggle("home-about-active", entry.isIntersecting);
+    },
+    {
+      rootMargin: "-24% 0px -38%",
+      threshold: 0,
+    }
+  );
+
+  homePhotoObserver.observe(homeAboutSection);
+}
+
+const aboutImageSections = document.querySelectorAll("[data-about-image]");
+const aboutScrollPhoto = document.querySelector(".about-scroll-photo");
+const aboutScrollImage = document.querySelector(".about-scroll-image");
+
+if (page === "about" && aboutImageSections.length && aboutScrollImage && "IntersectionObserver" in window) {
+  let activeAboutImage = aboutScrollImage.getAttribute("src");
+  let aboutImageTimer;
+
+  function setAboutImage(section) {
+    const nextImage = section.dataset.aboutImage;
+    if (!nextImage || nextImage === activeAboutImage) return;
+
+    window.clearTimeout(aboutImageTimer);
+    aboutScrollPhoto?.classList.add("is-switching");
+
+    aboutImageTimer = window.setTimeout(() => {
+      activeAboutImage = nextImage;
+      aboutScrollImage.src = nextImage;
+      aboutScrollImage.alt = section.dataset.aboutAlt || "";
+      aboutScrollPhoto?.classList.remove("is-switching");
+    }, 180);
+  }
+
+  const aboutSectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        aboutImageSections.forEach((section) => {
+          section.classList.toggle("is-active", section === entry.target);
+        });
+        setAboutImage(entry.target);
+      });
+    },
+    {
+      rootMargin: "-32% 0px -42%",
+      threshold: 0,
+    }
+  );
+
+  aboutImageSections.forEach((section) => aboutSectionObserver.observe(section));
+}
 
 const dialog = document.querySelector(".project-dialog");
 const dialogImage = document.querySelector(".dialog-image");
