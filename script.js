@@ -2,7 +2,6 @@ const translations = {
   zh: {
     menuLabel: "Menu",
     navHome: "主页",
-    navAbout: "关于我",
     navCourses: "在校经历",
     navProjects: "项目展示",
     navNews: "最新消息",
@@ -22,7 +21,6 @@ const translations = {
     homeAboutIntro: "我目前是加州大学尔湾分校的一名学生，主修计算机工程。我喜欢探索不同的工程话题，并寻找解决现实世界问题的方法……",
     homeAboutSchool: "University of California, Irvine",
     homeAboutSchoolText: "入学年份：2025 \n 预计毕业：2029 \n 就读专业：计算机工程",
-    homeAboutLink: "了解更多关于我",
     homeRoutesKicker: "Explore",
     homeRoutesTitle: "继续浏览",
     homeRoutesIntro: "查看更多我的内容！这些入口和上面的菜单链接一样，每个都可以跳转到对应的页面。",
@@ -30,11 +28,6 @@ const translations = {
     routeProjects: "项目总览、独立详情页和作品内容。",
     routeNews: "近期动态、作品迭代和重要消息。",
     routeContact: "邮箱、社交链接和合作入口。",
-    aboutKicker: "About Me",
-    aboutTitle: "关于我",
-    aboutIntro: "这里有我简要的高等教育经历信息。",
-    aboutSchool: "加利福尼亚大学（尔湾分校）",
-    aboutSchoolText: "加利福尼亚大学-尔湾，简称UCI，成立于1965年，坐落在美国的加利福尼亚州西南部，隶属于加州大学系统下的九所高等教育机构之一。",
     coursesKicker: "Coursework",
     coursesTitle: "在校经历",
     courseOne: "作业、实验、笔记、代码片段或最终项目。",
@@ -76,7 +69,6 @@ const translations = {
   en: {
     menuLabel: "Menu",
     navHome: "Home",
-    navAbout: "About",
     navCourses: "Schoolwork",
     navProjects: "Projects",
     navNews: "News",
@@ -98,7 +90,6 @@ const translations = {
     homeAboutSchoolText: "Year of entry: 2025 \n Expected graduation: 2029 \n Major: Computer Engineering",
     homeAboutFocus: "Current Focus",
     homeAboutFocusText: "Keep only the strongest keywords here, such as AI, design, engineering, or research interests.",
-    homeAboutLink: "Learn more about me",
     homeRoutesKicker: "Explore",
     homeRoutesTitle: "Looking for more?",
     homeRoutesIntro: "Check out more of my content! These entry points are the same as the links in the menu above, and each will take you to its corresponding page.",
@@ -106,13 +97,6 @@ const translations = {
     routeProjects: "Find out about my projects: overview, individual pages, and content details.",
     routeNews: "Check out my recent updates: progress, iterations, and important news.",
     routeContact: "Get in touch: email, social links, and collaboration opportunities.",
-    aboutKicker: "About & Education",
-    aboutTitle: "About Me",
-    aboutIntro: "Use this page for your bio, interests, current areas of exploration, personal style, and the core impression you want visitors to leave with.",
-    aboutSchool: "School / Major",
-    aboutSchoolText: "Add coursework focus, research interests, GPA, clubs, awards, or representative experiences.",
-    aboutFocus: "Learning Path",
-    aboutFocusText: "AI, design, engineering, humanities, or any learning route you want to emphasize.",
     coursesKicker: "Schoolwork",
     coursesTitle: "Coursework and Campus Involvement",
     courseOne: "empty",
@@ -216,7 +200,6 @@ function normalizeSharedMenu() {
       `<div class="header-actions">
         <nav class="header-nav" aria-label="Site navigation">
           <a href="index.html" data-i18n="navHome">主页</a>
-          <a href="about.html" data-i18n="navAbout">关于我</a>
           <a href="courses.html" data-i18n="navCourses">课程课业</a>
           <a href="projects.html" data-i18n="navProjects">项目展示</a>
           <a href="news.html" data-i18n="navNews">最新消息</a>
@@ -245,7 +228,6 @@ function normalizeSharedMenu() {
       </div>
       <nav class="menu-links" aria-label="Site navigation">
         <a href="index.html" data-i18n="navHome">主页</a>
-        <a href="about.html" data-i18n="navAbout">关于与教育</a>
         <a href="courses.html" data-i18n="navCourses">课程课业</a>
         <a href="projects.html" data-i18n="navProjects">项目 Gallery</a>
         <a href="news.html" data-i18n="navNews">新闻更新</a>
@@ -344,65 +326,6 @@ menuPanel?.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") setMenu(false);
 });
-
-const homeAboutSection = document.querySelector(".home-about");
-
-if (page === "home" && homeAboutSection && "IntersectionObserver" in window) {
-  const homePhotoObserver = new IntersectionObserver(
-    ([entry]) => {
-      document.body.classList.toggle("home-about-active", entry.isIntersecting);
-    },
-    {
-      rootMargin: "-24% 0px -38%",
-      threshold: 0,
-    }
-  );
-
-  homePhotoObserver.observe(homeAboutSection);
-}
-
-const aboutImageSections = document.querySelectorAll("[data-about-image]");
-const aboutScrollPhoto = document.querySelector(".about-scroll-photo");
-const aboutScrollImage = document.querySelector(".about-scroll-image");
-
-if (page === "about" && aboutImageSections.length && aboutScrollImage && "IntersectionObserver" in window) {
-  let activeAboutImage = aboutScrollImage.getAttribute("src");
-  let aboutImageTimer;
-
-  function setAboutImage(section) {
-    const nextImage = section.dataset.aboutImage;
-    if (!nextImage || nextImage === activeAboutImage) return;
-
-    window.clearTimeout(aboutImageTimer);
-    aboutScrollPhoto?.classList.add("is-switching");
-
-    aboutImageTimer = window.setTimeout(() => {
-      activeAboutImage = nextImage;
-      aboutScrollImage.src = nextImage;
-      aboutScrollImage.alt = section.dataset.aboutAlt || "";
-      aboutScrollPhoto?.classList.remove("is-switching");
-    }, 180);
-  }
-
-  const aboutSectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-
-        aboutImageSections.forEach((section) => {
-          section.classList.toggle("is-active", section === entry.target);
-        });
-        setAboutImage(entry.target);
-      });
-    },
-    {
-      rootMargin: "-32% 0px -42%",
-      threshold: 0,
-    }
-  );
-
-  aboutImageSections.forEach((section) => aboutSectionObserver.observe(section));
-}
 
 const dialog = document.querySelector(".project-dialog");
 const dialogImage = document.querySelector(".dialog-image");
