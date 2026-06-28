@@ -686,6 +686,18 @@ h2 {
   font-size: clamp(2.8rem, 5.8vw, 5.1rem);
 }
 
+.news-page-title {
+  font-size: clamp(2.6rem, 5.2vw, 4.7rem);
+}
+
+.courses-detail-page {
+  display: block;
+}
+
+.empty-detail-block {
+  min-height: 240px;
+}
+
 .project-flat-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
