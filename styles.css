@@ -148,12 +148,10 @@ button {
 }
 
 .brand-mark {
-  width: 18px;
-  height: 18px;
-  border: 1px solid rgba(255, 255, 255, 0.46);
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--cyan), #1167ff 62%, #061121);
-  box-shadow: 0 0 28px rgba(83, 180, 255, 0.68);
+  width: 24px;
+  height: 24px;
+  background: url("Untitled-1.png") center / contain no-repeat;
+  filter: drop-shadow(0 0 16px rgba(83, 180, 255, 0.58));
 }
 
 .menu-button,
